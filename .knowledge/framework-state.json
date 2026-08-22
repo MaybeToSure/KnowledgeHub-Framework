@@ -1,12 +1,12 @@
 {
-    "installed_version":  "0.1.0",
-    "generated_at":  "2026-08-22T16:03:57.7727958+08:00",
+    "installed_version":  "0.1.1",
+    "generated_at":  "2026-08-22T16:10:14.0920633+08:00",
     "files":  {
                   ".agents/skills/knowledge-hub/agents/openai.yaml":  "2c25192f76b4cb11bf3178500daa33210c7a7c819e71e5d82eddfb1861c29cb8",
                   ".agents/skills/knowledge-hub/references/audit-and-sync.md":  "fdc19e76372f399a62d4da796de4c4dfbba9f6e9fb923ecab7c4a548e5b42fd5",
                   ".agents/skills/knowledge-hub/references/ingest-and-organize.md":  "60805e5c7e7230a01fe7a2ac6812c417ac7935ea8a122ef4021e71b321ea5a3b",
                   ".agents/skills/knowledge-hub/references/retrieve-and-project.md":  "1435206208086d3470be547bf90f939d521604189153a7630dcbc23997c313bd",
-                  ".agents/skills/knowledge-hub/scripts/knowledge-health.ps1":  "57a173b3f691523fdd55f3aa25a3104a891ce8cf12921956c601eb4d1f77aed7",
+                  ".agents/skills/knowledge-hub/scripts/knowledge-health.ps1":  "4eefdd7163f95e293159b6e59697550a0d7496528cdb9aa558b7878f1d6dc3c1",
                   ".agents/skills/knowledge-hub/SKILL.md":  "f1c7b16e63519dc3319538d5707fe367936e6469ebef0943078a794b68b359e8",
                   ".gitattributes":  "505249beb33b24c8afbf60d4a66a41f4cb997acf74d38dde44b3e92633f8518f",
                   ".gitignore":  "e1ccdd6676129e83c9a6b28df3aa4a9e01469afad59cc3250bddeffb8ad85e5a",
@@ -27,9 +27,9 @@
                   "Templates/Core/来源条目.md":  "d89dedd1974f12dca9cdea7bcbc06724af71d143b7191bd2be266c7274b48680",
                   "Templates/Core/知识条目.md":  "bec872c263fa0c2aced00597824af9cd7267173f1ebf680608f8825f5722f3b8",
                   "Templates/Core/项目入口.md":  "46180ac5f4f95919cbbc107c5b58089973a4bf159e195ae0abdbdbd3e7d20596",
-                  "tools/setup.ps1":  "6126c221f197b009a550f98f400f0947e81c526e123909527db1514b044646fe",
-                  "tools/update-framework.ps1":  "b0fc3d27ac08385fbe871e3ae3d0d3feec4ef05b72f017b5ba193a4dd7f8f4dd",
-                  "tools/verify-repository.ps1":  "4a2873078bc9b5b70795283f27c234a70953b6b66bf38dc739f77b6ffa3d3bb1",
-                  "VERSION":  "e9dd8507f4bf0c6f42458e41aea833ad0bd3f6127272335eee9bf4d58541ed67"
+                  "tools/setup.ps1":  "92c09db048b915cee707d34087f9bc2b4ef6b5d9af588d9e24e53720246531c5",
+                  "tools/update-framework.ps1":  "91dc61394a939bb4b1c62768932d78bbcd797db8aab5d9aba3f536eda65a6b45",
+                  "tools/verify-repository.ps1":  "46c6a263595f916fae325ae1e2618b94aeafc088adfa23337643299e35178b76",
+                  "VERSION":  "80447316529fc62014fbaa047fb67c51ac30e32830cda370405349d8d66d196c"
               }
 }

@@ -29,6 +29,29 @@ function Get-ManagedFiles {
     return @($result | Sort-Object -Unique)
 }
 
+function Get-PortableFileHash {
+    param([string]$Path)
+
+    $name = [IO.Path]::GetFileName($Path)
+    $extension = [IO.Path]::GetExtension($Path).ToLowerInvariant()
+    $textNames = @('.gitattributes', '.gitignore', 'AGENTS.md', 'LICENSE', 'README.md', 'VERSION')
+    $textExtensions = @('.md', '.yaml', '.yml', '.json', '.jsonl', '.csv', '.tsv', '.ps1')
+    if ($name -in $textNames -or $extension -in $textExtensions) {
+        $text = [IO.File]::ReadAllText($Path)
+        if ($text.Length -gt 0 -and $text[0] -eq [char]0xFEFF) { $text = $text.Substring(1) }
+        $text = $text.Replace("`r`n", "`n").Replace("`r", "`n")
+        $bytes = [Text.Encoding]::UTF8.GetBytes($text)
+    } else {
+        $bytes = [IO.File]::ReadAllBytes($Path)
+    }
+    $sha = [Security.Cryptography.SHA256]::Create()
+    try {
+        return ([BitConverter]::ToString($sha.ComputeHash($bytes))).Replace('-', '').ToLowerInvariant()
+    } finally {
+        $sha.Dispose()
+    }
+}
+
 $requiredDirectories = @(
     '.knowledge', '.obsidian', '00-Inbox\Human', '00-Inbox\Agents',
     '10-Sources\Attachments', '20-Knowledge', '30-Notes', '40-Courses',
@@ -82,7 +105,7 @@ $manifest = Get-Content -Raw -LiteralPath $manifestPath | ConvertFrom-Json
 $version = (Get-Content -Raw -LiteralPath (Join-Path $Root $manifest.version_file)).Trim()
 $hashes = [ordered]@{}
 foreach ($relativePath in Get-ManagedFiles -BasePath $Root -Manifest $manifest) {
-    $hashes[$relativePath] = (Get-FileHash -Algorithm SHA256 -LiteralPath (Join-Path $Root ($relativePath -replace '/', '\'))).Hash.ToLowerInvariant()
+    $hashes[$relativePath] = Get-PortableFileHash -Path (Join-Path $Root ($relativePath -replace '/', '\'))
 }
 $state = [ordered]@{
     installed_version = $version
@@ -90,12 +113,16 @@ $state = [ordered]@{
     files = $hashes
 }
 $statePath = Join-Path $Root '.knowledge\framework-state.json'
-[IO.File]::WriteAllText($statePath, ($state | ConvertTo-Json -Depth 10) + [Environment]::NewLine)
+$stateUpdated = -not (Test-Path -LiteralPath $statePath -PathType Leaf)
+if ($stateUpdated) {
+    [IO.File]::WriteAllText($statePath, ($state | ConvertTo-Json -Depth 10) + [Environment]::NewLine)
+}
 
 [pscustomobject]@{
     root = $Root
     framework_version = $version
     managed_files = $hashes.Count
+    state_updated = $stateUpdated
     git_initialized = $true
     lfs_initialized = $true
 } | ConvertTo-Json -Depth 5

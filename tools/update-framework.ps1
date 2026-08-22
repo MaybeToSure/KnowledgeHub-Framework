@@ -33,6 +33,29 @@ function Get-ManagedFiles {
     return @($result | Sort-Object -Unique)
 }
 
+function Get-PortableFileHash {
+    param([string]$Path)
+
+    $name = [IO.Path]::GetFileName($Path)
+    $extension = [IO.Path]::GetExtension($Path).ToLowerInvariant()
+    $textNames = @('.gitattributes', '.gitignore', 'AGENTS.md', 'LICENSE', 'README.md', 'VERSION')
+    $textExtensions = @('.md', '.yaml', '.yml', '.json', '.jsonl', '.csv', '.tsv', '.ps1')
+    if ($name -in $textNames -or $extension -in $textExtensions) {
+        $text = [IO.File]::ReadAllText($Path)
+        if ($text.Length -gt 0 -and $text[0] -eq [char]0xFEFF) { $text = $text.Substring(1) }
+        $text = $text.Replace("`r`n", "`n").Replace("`r", "`n")
+        $bytes = [Text.Encoding]::UTF8.GetBytes($text)
+    } else {
+        $bytes = [IO.File]::ReadAllBytes($Path)
+    }
+    $sha = [Security.Cryptography.SHA256]::Create()
+    try {
+        return ([BitConverter]::ToString($sha.ComputeHash($bytes))).Replace('-', '').ToLowerInvariant()
+    } finally {
+        $sha.Dispose()
+    }
+}
+
 $sourceManifestPath = Join-Path $FrameworkSource 'framework.manifest.json'
 if (-not (Test-Path -LiteralPath $sourceManifestPath -PathType Leaf)) {
     throw '框架源目录缺少 framework.manifest.json。'
@@ -56,7 +79,7 @@ $newHashes = [ordered]@{}
 foreach ($relativePath in Get-ManagedFiles -BasePath $FrameworkSource -Manifest $sourceManifest) {
     $sourcePath = Join-Path $FrameworkSource ($relativePath -replace '/', '\')
     $targetPath = Join-Path $Root ($relativePath -replace '/', '\')
-    $sourceHash = (Get-FileHash -Algorithm SHA256 -LiteralPath $sourcePath).Hash.ToLowerInvariant()
+    $sourceHash = Get-PortableFileHash -Path $sourcePath
     $targetExists = Test-Path -LiteralPath $targetPath -PathType Leaf
     $oldBaseline = $null
     if ($oldState -and $oldState.files -and $oldState.files.PSObject.Properties[$relativePath]) {
@@ -71,7 +94,7 @@ foreach ($relativePath in Get-ManagedFiles -BasePath $FrameworkSource -Manifest 
         continue
     }
 
-    $targetHash = (Get-FileHash -Algorithm SHA256 -LiteralPath $targetPath).Hash.ToLowerInvariant()
+    $targetHash = Get-PortableFileHash -Path $targetPath
     if ($targetHash -eq $sourceHash) {
         $unchanged.Add($relativePath)
         $newHashes[$relativePath] = $sourceHash
