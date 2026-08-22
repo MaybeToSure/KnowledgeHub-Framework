@@ -1,6 +1,6 @@
 {
-    "installed_version":  "0.1.1",
-    "generated_at":  "2026-08-22T16:10:14.0920633+08:00",
+    "installed_version":  "0.1.2",
+    "generated_at":  "2026-08-22T16:38:45.4885928+08:00",
     "files":  {
                   ".agents/skills/knowledge-hub/agents/openai.yaml":  "2c25192f76b4cb11bf3178500daa33210c7a7c819e71e5d82eddfb1861c29cb8",
                   ".agents/skills/knowledge-hub/references/audit-and-sync.md":  "fdc19e76372f399a62d4da796de4c4dfbba9f6e9fb923ecab7c4a548e5b42fd5",
@@ -18,7 +18,7 @@
                   "examples/demo/README.md":  "3ee821bb4ea9910caaccc6b3237685dc1e67e9f04588ce97da4d131e29205857",
                   "framework.manifest.json":  "e9b15e5eca612769d0e86357119c4b4b2659954b81b21a0aa50003b70d77f82c",
                   "LICENSE":  "4a0b4843e12f87ce154da51f399c869f331f27e35f6b4a13f8025225b0c0d60c",
-                  "README.md":  "515c5b01377d4ac4317b6f7af781ea10b2873082076bffeeac9c45320d1f2ec2",
+                  "README.md":  "a5b6355b4cf55b6b248d1a605b8fdc7e3a1ba2b9d29f2a09ff7977ad2f68c43e",
                   "Rules/Core/仓库同步.md":  "24f5a3d796188616dce53dacf21af46f6abef9e44b9a5edc603df8b4bd2ea057",
                   "Rules/Core/元数据规范.md":  "0103a5342872293ca44f00ef9cb3d6a40e93fd62ca71112201b2a87f1efac29e",
                   "Rules/Core/知识库治理.md":  "567197fb86892c7089a4a38931f1028314debf86b1394ccf8505b29887e04d97",
@@ -30,6 +30,6 @@
                   "tools/setup.ps1":  "92c09db048b915cee707d34087f9bc2b4ef6b5d9af588d9e24e53720246531c5",
                   "tools/update-framework.ps1":  "91dc61394a939bb4b1c62768932d78bbcd797db8aab5d9aba3f536eda65a6b45",
                   "tools/verify-repository.ps1":  "46c6a263595f916fae325ae1e2618b94aeafc088adfa23337643299e35178b76",
-                  "VERSION":  "80447316529fc62014fbaa047fb67c51ac30e32830cda370405349d8d66d196c"
+                  "VERSION":  "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792"
               }
 }

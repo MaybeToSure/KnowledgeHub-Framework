@@ -58,6 +58,7 @@ flowchart LR
 - [框架原理与边界](docs/框架原理与边界.md)
 - [升级与迁移](docs/升级与迁移.md)
 - [演示场景](examples/demo/README.md)
+- [其他用户通用落地包](https://github.com/MaybeToSure/KnowledgeHub-Setup)
 
 ## 安全边界
 
