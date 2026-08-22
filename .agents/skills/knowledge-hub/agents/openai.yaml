@@ -1,0 +1,6 @@
+interface:
+  display_name: "Knowledge Hub"
+  short_description: "本地知识库的整理、检索、审核、项目协作与安全同步"
+  default_prompt: "使用 $knowledge-hub 整理、审核并同步当前知识库。"
+policy:
+  allow_implicit_invocation: true

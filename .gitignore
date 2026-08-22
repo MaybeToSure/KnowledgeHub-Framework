@@ -1,0 +1,27 @@
+# Obsidian device state
+.obsidian/workspace*.json
+.obsidian/cache/
+
+# Rebuildable runtime state
+.knowledge/*
+!.knowledge/README.md
+!.knowledge/framework-state.json
+
+# Operating system and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.temp
+*.bak
+~$*
+
+# Secrets and local environments
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_ed25519

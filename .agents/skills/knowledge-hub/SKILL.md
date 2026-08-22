@@ -1,0 +1,30 @@
+---
+name: knowledge-hub
+description: 创建、整理、检索、审核和同步本地知识库，并协调 Obsidian、Codex、Git、Git LFS、远程仓库及独立项目的知识回流。用于收录资料、整理笔记、调阅知识、准备项目上下文、审核知识质量、管理文件夹或同步知识库；不用于直接实现独立项目的业务代码。
+---
+
+# Knowledge Hub
+
+把当前仓库视为本地知识本体。人工拥有最高权威，Codex 负责日常自治管理。先读取仓库根目录的 `AGENTS.md`、`Rules/Core/知识库治理.md`、`Rules/Core/元数据规范.md` 以及任务相关的 `Rules/Local` 文件，再选择工作模式。
+
+## 路由
+
+- 收录、导入、保存、注入资料，或整理、分类、命名、合并、关联时，读取 [references/ingest-and-organize.md](references/ingest-and-organize.md)。
+- 查找、搜索、调阅资料，或为课程、研究、代码项目准备上下文和回流成果时，读取 [references/retrieve-and-project.md](references/retrieve-and-project.md)。
+- 审核、检查重复或过期内容、归档、提交、推送、拉取或同步远程时，读取 [references/audit-and-sync.md](references/audit-and-sync.md)。
+- 复合请求按依赖顺序组合模式，不要求人工选择角色。
+
+## 公共不变量
+
+- 人工本次明确指令优先；`authority: human` 或 `locked: true` 的核心内容不得静默覆盖。
+- 原始资料保存在 `10-Sources`，更新时创建新版本或派生笔记。
+- 永久删除默认禁止；删除先移动到 `90-Archive`。
+- 批量移动、重命名或重构前建立 Git 恢复点，并修复受影响的内部链接。
+- 项目代码保留在独立项目仓库；这里只保存项目入口、上下文、稳定引用和可复用成果。
+- 禁止提交密钥、Token、密码、私钥、缓存和可重建索引。
+- 禁止强制推送和历史改写；远程冲突时停止自动推送并保留双方内容。
+- 完成写入后运行 `scripts/knowledge-health.ps1`；有错误时不得声称同步完整。
+
+## 输出要求
+
+说明识别出的模式、创建或修改的知识、来源与关联、审核结果、Git/LFS/远程状态以及尚未解决的风险。普通操作保持简短；批量操作保留可恢复证据。

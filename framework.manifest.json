@@ -1,0 +1,35 @@
+{
+  "name": "KnowledgeHub Framework",
+  "version_file": "VERSION",
+  "managed_roots": [
+    ".agents/skills/knowledge-hub",
+    "Rules/Core",
+    "Templates/Core",
+    "tools",
+    "docs",
+    "examples/demo"
+  ],
+  "managed_files": [
+    "AGENTS.md",
+    ".gitattributes",
+    ".gitignore",
+    "README.md",
+    "LICENSE",
+    "VERSION",
+    "framework.manifest.json"
+  ],
+  "user_owned_roots": [
+    ".obsidian",
+    "00-Inbox",
+    "10-Sources",
+    "20-Knowledge",
+    "30-Notes",
+    "40-Courses",
+    "50-Projects",
+    "60-Experiments",
+    "70-Outputs",
+    "90-Archive",
+    "Rules/Local",
+    "Templates/Custom"
+  ]
+}
