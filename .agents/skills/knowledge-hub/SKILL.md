@@ -1,6 +1,6 @@
 ---
 name: knowledge-hub
-description: 创建、整理、检索、审核和同步本地知识库，并协调 Obsidian、Codex、Git、Git LFS、远程仓库及独立项目的知识回流。用于收录资料、整理笔记、调阅知识、准备项目上下文、审核知识质量、管理文件夹或同步知识库；不用于直接实现独立项目的业务代码。
+description: 创建、整理、检索、审核和同步本地知识库，并协调 Obsidian、Codex、Git、Git LFS、远程仓库及独立工作仓库。用于收录资料、整理笔记、调阅知识、判断和创建课程/工程/实验/研究/写作仓库、准备任务上下文、审核知识质量、管理文件夹或同步知识库；不用于直接实现独立仓库中的业务代码。
 ---
 
 # Knowledge Hub
@@ -10,7 +10,7 @@ description: 创建、整理、检索、审核和同步本地知识库，并协�
 ## 路由
 
 - 收录、导入、保存、注入资料，或整理、分类、命名、合并、关联时，读取 [references/ingest-and-organize.md](references/ingest-and-organize.md)。
-- 查找、搜索、调阅资料，或为课程、研究、代码项目准备上下文和回流成果时，读取 [references/retrieve-and-project.md](references/retrieve-and-project.md)。
+- 查找、搜索、调阅资料，判断或创建独立工作仓库，或为课程、研究、代码项目准备上下文和回流成果时，读取 [references/retrieve-and-project.md](references/retrieve-and-project.md)。
 - 审核、检查重复或过期内容、归档、提交、推送、拉取或同步远程时，读取 [references/audit-and-sync.md](references/audit-and-sync.md)。
 - 复合请求按依赖顺序组合模式，不要求人工选择角色。
 

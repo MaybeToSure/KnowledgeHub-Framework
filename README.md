@@ -55,6 +55,7 @@ flowchart LR
 
 - [快速开始](docs/快速开始.md)
 - [日常使用](docs/日常使用.md)
+- [独立仓库创建与驱动](docs/独立仓库创建与驱动.md)
 - [框架原理与边界](docs/框架原理与边界.md)
 - [升级与迁移](docs/升级与迁移.md)
 - [演示场景](examples/demo/README.md)
