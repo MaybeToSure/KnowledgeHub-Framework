@@ -65,6 +65,7 @@ flowchart LR
 - [升级与迁移](docs/升级与迁移.md)
 - [演示场景](examples/demo/README.md)
 - [其他用户通用落地包](https://github.com/MaybeToSure/KnowledgeHub-Setup)
+- [手机端“云飞随手记”可选实现](https://github.com/MaybeToSure/KnowledgeHub-Mobile-Capture)
 
 ## 安全边界
 
@@ -73,7 +74,7 @@ flowchart LR
 - 密钥、Token、密码、私钥和设备缓存不得提交。
 - 项目代码使用独立仓库；知识库只保存稳定引用、上下文和可复用成果。
 - 普通任务聊天不旁路记录；随手记只在专用 AI 任务或 Obsidian 中进入同一收件箱。
-- 手机 ChatGPT + GitHub 捕获是可选扩展，默认未启用；只有部署受限追加写入工具并通过验收后才可使用。
+- 手机 ChatGPT + GitHub 捕获是可选扩展，默认未启用；只有部署 `KnowledgeHub-Mobile-Capture`、完成 OAuth 与受限追加写入验收后才可使用。
 - 框架升级检测到用户改过的框架文件时会跳过并报告冲突，不会静默覆盖。
 
 ## 验证
