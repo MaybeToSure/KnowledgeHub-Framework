@@ -53,9 +53,11 @@ function Get-PortableFileHash {
 }
 
 $requiredDirectories = @(
-    '.knowledge', '.obsidian', '00-Inbox\Human', '00-Inbox\Agents',
-    '10-Sources\Attachments', '20-Knowledge', '30-Notes', '40-Courses',
+    '.knowledge', '.obsidian', '00-Inbox\Human', '00-Inbox\Human\Quick-Captures', '00-Inbox\Agents',
+    '10-Sources\Attachments', '10-Sources\Attachments\Quick-Captures',
+    '20-Knowledge', '30-Notes', '30-Notes\Quick-Capture-Summaries', '40-Courses',
     '50-Projects', '60-Experiments', '70-Outputs', '90-Archive',
+    '90-Archive\Quick-Captures',
     'Rules\Local', 'Templates\Custom'
 )
 foreach ($directory in $requiredDirectories) {

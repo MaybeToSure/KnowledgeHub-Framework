@@ -16,9 +16,10 @@ function Add-Finding {
 }
 
 $requiredDirectories = @(
-    '00-Inbox\Human', '00-Inbox\Agents', '10-Sources\Attachments',
-    '20-Knowledge', '30-Notes', '40-Courses', '50-Projects',
-    '60-Experiments', '70-Outputs', '90-Archive',
+    '00-Inbox\Human', '00-Inbox\Human\Quick-Captures', '00-Inbox\Agents',
+    '10-Sources\Attachments', '10-Sources\Attachments\Quick-Captures',
+    '20-Knowledge', '30-Notes', '30-Notes\Quick-Capture-Summaries', '40-Courses', '50-Projects',
+    '60-Experiments', '70-Outputs', '90-Archive', '90-Archive\Quick-Captures',
     'Rules\Core', 'Rules\Local', 'Templates\Core', 'Templates\Custom'
 )
 foreach ($directory in $requiredDirectories) {
