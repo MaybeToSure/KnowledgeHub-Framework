@@ -127,6 +127,11 @@ $statePath = Join-Path $Root '.knowledge\framework-state.json'
 $stateUpdated = -not (Test-Path -LiteralPath $statePath -PathType Leaf)
 if ($stateUpdated) {
     [IO.File]::WriteAllText($statePath, ($state | ConvertTo-Json -Depth 10) + [Environment]::NewLine)
+} else {
+    $existingState = Get-Content -Raw -LiteralPath $statePath | ConvertFrom-Json
+    if ([string]$existingState.installed_version -ne $version) {
+        throw "framework-state.json records version '$($existingState.installed_version)', but VERSION is '$version'. Framework maintainers must refresh the release state; existing instances must use tools/update-framework.ps1."
+    }
 }
 
 $localConfig = [ordered]@{

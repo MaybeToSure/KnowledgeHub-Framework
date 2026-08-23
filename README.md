@@ -20,7 +20,7 @@ flowchart LR
 
 ## 五分钟开始
 
-1. 使用本仓库的 **Use this template** 创建一个新的私有仓库，或下载 Release ZIP。
+1. 使用本仓库的 **Use this template** 创建一个新的私有仓库，或下载与当前 `VERSION` 一致的 Release ZIP。
 2. 将新仓库克隆到 `<WorkspaceRoot>\KnowledgeHub`；默认 `WorkspaceRoot` 为 `%USERPROFILE%\KnowledgeHub-Workspace`。
 3. 在仓库根目录运行：
 
@@ -73,6 +73,7 @@ flowchart LR
 - 密钥、Token、密码、私钥和设备缓存不得提交。
 - 项目代码使用独立仓库；知识库只保存稳定引用、上下文和可复用成果。
 - 普通任务聊天不旁路记录；随手记只在专用 AI 任务或 Obsidian 中进入同一收件箱。
+- 手机 ChatGPT + GitHub 捕获是可选扩展，默认未启用；只有部署受限追加写入工具并通过验收后才可使用。
 - 框架升级检测到用户改过的框架文件时会跳过并报告冲突，不会静默覆盖。
 
 ## 验证
@@ -82,3 +83,5 @@ powershell -ExecutionPolicy Bypass -File .\tools\verify-repository.ps1
 ```
 
 当前框架版本见 [`VERSION`](VERSION)。本项目采用 [MIT License](LICENSE)。
+
+发布维护者在打标签前必须依次运行 `tools/refresh-framework-state.ps1` 和 `tools/verify-repository.ps1 -StrictFrameworkState`，确保版本、文件哈希和 Release 基线一致。
