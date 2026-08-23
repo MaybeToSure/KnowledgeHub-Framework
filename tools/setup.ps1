@@ -1,6 +1,7 @@
 ﻿[CmdletBinding()]
 param(
-    [string]$Root
+    [string]$Root,
+    [string]$WorkspaceRoot
 )
 
 $ErrorActionPreference = 'Stop'
@@ -8,6 +9,14 @@ if (-not $Root) {
     $Root = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 }
 $Root = (Resolve-Path -LiteralPath $Root).Path
+if (-not $WorkspaceRoot) {
+    $WorkspaceRoot = Split-Path -Parent $Root
+}
+$WorkspaceRoot = [IO.Path]::GetFullPath($WorkspaceRoot)
+$expectedRoot = [IO.Path]::GetFullPath((Join-Path $WorkspaceRoot 'KnowledgeHub'))
+if (-not $Root.Equals($expectedRoot, [StringComparison]::OrdinalIgnoreCase)) {
+    throw "KnowledgeHub must be located at <WorkspaceRoot>\KnowledgeHub. Root: $Root; WorkspaceRoot: $WorkspaceRoot"
+}
 
 function Get-ManagedFiles {
     param([string]$BasePath, [object]$Manifest)
@@ -120,8 +129,18 @@ if ($stateUpdated) {
     [IO.File]::WriteAllText($statePath, ($state | ConvertTo-Json -Depth 10) + [Environment]::NewLine)
 }
 
+$localConfig = [ordered]@{
+    workspaceRoot = $WorkspaceRoot
+    knowledgeHubRoot = $Root
+    projectRepositoriesRoot = $WorkspaceRoot
+}
+$localConfigPath = Join-Path $Root '.knowledge\local-config.json'
+[IO.File]::WriteAllText($localConfigPath, ($localConfig | ConvertTo-Json -Depth 5) + [Environment]::NewLine)
+
 [pscustomobject]@{
     root = $Root
+    workspace_root = $WorkspaceRoot
+    local_config = $localConfigPath
     framework_version = $version
     managed_files = $hashes.Count
     state_updated = $stateUpdated

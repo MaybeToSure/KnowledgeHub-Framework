@@ -21,6 +21,7 @@
 当任务需要独立交付、版本历史、依赖、权限或复现环境时，读取仓库根目录的 `docs/独立仓库创建与驱动.md`。默认由代理调用 `tools/new-work-repository.ps1` 创建；人工手工创建后，也按同一契约审核和登记。
 
 - 将工作归类为 Course、Engineering、Experiment、Research、Writing 或 Generic。
+- 默认从 `.knowledge/local-config.json` 读取 `projectRepositoriesRoot`；缺失时才回退到 KnowledgeHub 父目录。
 - 未明确远程意图时使用 `RemoteMode None`；明确要求创建 GitHub 私有仓库时才使用 `GitHubPrivate`。
 - 不代替人工推断公开发布或推送授权。
 - 脚本完成后检查新仓库初始提交、KnowledgeHub 新入口和两个工作区状态。

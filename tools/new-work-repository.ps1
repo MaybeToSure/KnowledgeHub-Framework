@@ -24,7 +24,15 @@ if (-not (Test-Path -LiteralPath (Join-Path $KnowledgeHubRoot 'framework.manifes
 }
 
 if (-not $Destination) {
-    $Destination = Join-Path (Split-Path -Parent $KnowledgeHubRoot) $RepositoryName
+    $projectRepositoriesRoot = Split-Path -Parent $KnowledgeHubRoot
+    $localConfigPath = Join-Path $KnowledgeHubRoot '.knowledge\local-config.json'
+    if (Test-Path -LiteralPath $localConfigPath -PathType Leaf) {
+        $localConfig = Get-Content -Raw -LiteralPath $localConfigPath | ConvertFrom-Json
+        if ($localConfig.projectRepositoriesRoot) {
+            $projectRepositoriesRoot = [IO.Path]::GetFullPath([string]$localConfig.projectRepositoriesRoot)
+        }
+    }
+    $Destination = Join-Path $projectRepositoriesRoot $RepositoryName
 }
 $Destination = [IO.Path]::GetFullPath($Destination)
 $hubPrefix = $KnowledgeHubRoot.TrimEnd([char[]]@('\', '/')) + [IO.Path]::DirectorySeparatorChar

@@ -24,6 +24,7 @@
 - 可复用知识保存在 `20-Knowledge`；过程笔记保存在 `30-Notes`。
 - 项目代码不进入本仓库；`50-Projects` 仅保存项目上下文、稳定引用与成果索引。
 - 知识库与代码项目遵循“逻辑包含、物理分离”；默认禁止嵌套其他 Git 仓库或使用 Git Submodule。
+- 框架工作区根目录统一称为 `KnowledgeHub-Workspace`；KnowledgeHub 位于 `<WorkspaceRoot>/KnowledgeHub`，独立仓库默认位于配置的 `projectRepositoriesRoot`，不得硬编码盘符或 GitHub 服务名。
 - `.obsidian` 由人工界面拥有；Codex 只有在任务明确涉及 Obsidian 配置时才修改它。
 - `.knowledge` 只存放框架状态或可重建的索引、缓存和运行状态。
 - 随手记 Markdown 和附件必须位于本仓库内并可由 Obsidian 直接浏览、补充和审核；聊天历史不是权威存储。

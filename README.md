@@ -4,6 +4,8 @@
 
 > 框架是公开方法和工具；由框架创建的知识库实例保存用户自己的私有数据。
 
+新用户的框架工作区默认位于 `%USERPROFILE%\KnowledgeHub-Workspace`，知识库实例位于其下的 `KnowledgeHub`。盘符和父路径可以自定义，但相对结构保持一致；`GitHub` 只表示可选远程服务，不再作为框架本地根目录名称。
+
 ```mermaid
 flowchart LR
     F["公开框架仓库"] -->|"从模板创建 / 下载"| K["用户私有 KnowledgeHub"]
@@ -19,7 +21,7 @@ flowchart LR
 ## 五分钟开始
 
 1. 使用本仓库的 **Use this template** 创建一个新的私有仓库，或下载 Release ZIP。
-2. 将新仓库克隆到本地。
+2. 将新仓库克隆到 `<WorkspaceRoot>\KnowledgeHub`；默认 `WorkspaceRoot` 为 `%USERPROFILE%\KnowledgeHub-Workspace`。
 3. 在仓库根目录运行：
 
    ```powershell
