@@ -1,0 +1,13 @@
+schema_version: 1
+id: generic/knowledgehub-framework
+name: "KnowledgeHub Framework"
+type: generic
+status: active
+created_at: 2026-08-24
+default_branch: main
+knowledge_hub:
+  local_path: "D:/KnowledgeHub-Workspace/KnowledgeHub"
+  entry: "50-Projects/knowledgehub-framework/entry.md"
+  revision: "33c87346b316afcd1816bcaf87e5a8d9f65a0f61"
+knowledge_inputs: []
+reusable_outputs: []
