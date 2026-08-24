@@ -27,6 +27,9 @@ try {
     if ($content -notmatch '模电原理') { throw '总览缺少受管理仓库。' }
     if ($content -notmatch '待处理随手记：1 条') { throw '随手记计数不正确。' }
     if ($content -notmatch '\[\[analog-electronics/README\]\]') { throw '仓库入口链接不正确。' }
+    if ($content -match '`t') { throw '最近提交包含字面量 `t。' }
+    if ($content -notmatch "最近提交：[^`r`n]*`t") { throw '最近提交的时间与标题分隔不正确。' }
+    if ($content -notmatch 'test hub' -or $content -notmatch 'test project') { throw '最近提交标题缺失。' }
 
     [IO.File]::WriteAllText((Join-Path $hub '_Dashboard\人工关注.md'), "# 人工内容`n", [Text.UTF8Encoding]::new($false))
     & $generator -Root $hub | Out-Null

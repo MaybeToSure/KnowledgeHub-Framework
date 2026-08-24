@@ -53,19 +53,16 @@ function Get-VaultLinkPath {
 
 function Get-RepositoryFacts {
     param([string]$RepositoryPath, [hashtable]$Metadata)
-    $lastCommit = (& git -C $RepositoryPath log -1 --format='%cI`t%s' 2>$null | Select-Object -First 1)
-    if ($LASTEXITCODE -ne 0) { $lastCommit = '' }
+    $lastCommit = (& git -C $RepositoryPath log -1 --format='%cI%x09%s' 2>$null | Select-Object -First 1)
     $recentDocuments = @()
     $trackedMarkdown = @(& git -C $RepositoryPath -c core.quotePath=false ls-files -- '*.md' 2>$null)
-    if ($LASTEXITCODE -eq 0) {
-        $recentDocuments = @($trackedMarkdown | ForEach-Object {
-            $relative = [string]$_
-            $fullPath = Join-Path $RepositoryPath ($relative -replace '/', '\')
-            if ($relative -notin @('README.md', 'AGENTS.md') -and (Test-Path -LiteralPath $fullPath -PathType Leaf)) {
-                [pscustomobject]@{ Relative = $relative; Modified = (Get-Item -LiteralPath $fullPath).LastWriteTimeUtc }
-            }
-        } | Sort-Object Modified -Descending | Select-Object -First 3)
-    }
+    $recentDocuments = @($trackedMarkdown | ForEach-Object {
+        $relative = [string]$_
+        $fullPath = Join-Path $RepositoryPath ($relative -replace '/', '\')
+        if ($relative -notin @('README.md', 'AGENTS.md') -and (Test-Path -LiteralPath $fullPath -PathType Leaf)) {
+            [pscustomobject]@{ Relative = $relative; Modified = (Get-Item -LiteralPath $fullPath).LastWriteTimeUtc }
+        }
+    } | Sort-Object Modified -Descending | Select-Object -First 3)
     return [pscustomobject]@{
         Path = $RepositoryPath
         Id = if ($Metadata.id) { [string]$Metadata.id } else { Split-Path -Leaf $RepositoryPath }
