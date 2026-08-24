@@ -234,6 +234,13 @@ To be refined by the human owner and Codex.
 "@
 Write-Utf8File -Path $entryPath -Content $entry
 
+$overviewUpdated = $false
+$overviewScript = Join-Path $KnowledgeHubRoot 'tools\update-workspace-overview.ps1'
+if (Test-Path -LiteralPath $overviewScript -PathType Leaf) {
+    & $overviewScript -Root $KnowledgeHubRoot | Out-Null
+    $overviewUpdated = $true
+}
+
 [pscustomobject]@{
     id = $workId
     type = $Type
@@ -243,5 +250,6 @@ Write-Utf8File -Path $entryPath -Content $entry
     repository_revision = $projectRevision
     knowledge_entry = $entryPath
     knowledge_revision_before_registration = $hubRevision
+    workspace_overview_updated = $overviewUpdated
     next_action = 'Review and commit the KnowledgeHub entry separately. Run git push only when explicitly intended.'
 } | ConvertTo-Json -Depth 5

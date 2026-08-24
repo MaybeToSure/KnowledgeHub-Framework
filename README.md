@@ -18,6 +18,8 @@ flowchart LR
     P -->|"可复用成果回流"| K
 ```
 
+Obsidian 推荐把整个 `WorkspaceRoot` 作为 Vault，以仓库名称浏览 KnowledgeHub 和受管理项目文档；`_Dashboard/工作区总览.md` 由 Codex 根据 `work.yaml`、README、Git 和收件箱事实生成。
+
 ## 五分钟开始
 
 1. 使用本仓库的 **Use this template** 创建一个新的私有仓库，或下载与当前 `VERSION` 一致的 Release ZIP。
@@ -61,6 +63,7 @@ flowchart LR
 - [整体机制](docs/整体机制.md)
 - [日常使用](docs/日常使用.md)
 - [独立仓库创建与驱动](docs/独立仓库创建与驱动.md)
+- [工作区总览](docs/工作区总览.md)
 - [框架原理与边界](docs/框架原理与边界.md)
 - [升级与迁移](docs/升级与迁移.md)
 - [演示场景](examples/demo/README.md)

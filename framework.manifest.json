@@ -19,6 +19,7 @@
     "framework.manifest.json"
   ],
   "user_owned_roots": [
+    "_Dashboard",
     ".obsidian",
     "00-Inbox",
     "10-Sources",

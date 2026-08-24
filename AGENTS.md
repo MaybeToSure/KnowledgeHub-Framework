@@ -17,6 +17,7 @@
 5. 删除默认移动到 `90-Archive`；未经人工明确要求不得永久删除原始资料。
 6. 移动或重命名 Markdown 后修复内部链接。
 7. 完成后运行 `tools/verify-repository.ps1`；需要同步时再提交和推送。
+8. 用户要求全局总览时，遵循 `Rules/Core/工作区总览.md` 并运行生成器；只覆盖带固定生成标记的总览文件。
 
 ## Repository boundaries
 

@@ -62,7 +62,7 @@ function Get-PortableFileHash {
 }
 
 $requiredDirectories = @(
-    '.knowledge', '.obsidian', '00-Inbox\Human', '00-Inbox\Human\Quick-Captures', '00-Inbox\Agents',
+    '.knowledge', '.obsidian', '_Dashboard', '00-Inbox\Human', '00-Inbox\Human\Quick-Captures', '00-Inbox\Agents',
     '10-Sources\Attachments', '10-Sources\Attachments\Quick-Captures',
     '20-Knowledge', '30-Notes', '30-Notes\Quick-Capture-Summaries', '40-Courses',
     '50-Projects', '60-Experiments', '70-Outputs', '90-Archive',
@@ -72,7 +72,7 @@ $requiredDirectories = @(
 foreach ($directory in $requiredDirectories) {
     $fullDirectory = Join-Path $Root $directory
     New-Item -ItemType Directory -Force -Path $fullDirectory | Out-Null
-    if ($directory -notin @('.knowledge', '.obsidian', 'Rules\Local', 'Templates\Custom')) {
+    if ($directory -notin @('.knowledge', '.obsidian', '_Dashboard', 'Rules\Local', 'Templates\Custom')) {
         $hasFiles = @(Get-ChildItem -LiteralPath $fullDirectory -File -Force -ErrorAction SilentlyContinue).Count -gt 0
         if (-not $hasFiles) {
             New-Item -ItemType File -Force -Path (Join-Path $fullDirectory '.gitkeep') | Out-Null
@@ -141,6 +141,11 @@ $localConfig = [ordered]@{
 }
 $localConfigPath = Join-Path $Root '.knowledge\local-config.json'
 [IO.File]::WriteAllText($localConfigPath, ($localConfig | ConvertTo-Json -Depth 5) + [Environment]::NewLine)
+
+$overviewScript = Join-Path $Root 'tools\update-workspace-overview.ps1'
+if (Test-Path -LiteralPath $overviewScript -PathType Leaf) {
+    & $overviewScript -Root $Root | Out-Null
+}
 
 [pscustomobject]@{
     root = $Root
