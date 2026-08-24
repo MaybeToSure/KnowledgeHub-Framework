@@ -30,6 +30,7 @@ try {
     if ($content -match '`t') { throw '最近提交包含字面量 `t。' }
     if ($content -notmatch "最近提交：[^`r`n]*`t") { throw '最近提交的时间与标题分隔不正确。' }
     if ($content -notmatch 'test hub' -or $content -notmatch 'test project') { throw '最近提交标题缺失。' }
+    if ($content.EndsWith("`n`n")) { throw '总览末尾包含多余空白行。' }
 
     [IO.File]::WriteAllText((Join-Path $hub '_Dashboard\工作区总览-手动维护.md'), "# 人工内容`n", [Text.UTF8Encoding]::new($false))
     & $generator -Root $hub | Out-Null

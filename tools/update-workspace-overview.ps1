@@ -149,7 +149,6 @@ $lines.Add('')
 $lines.Add('```powershell')
 $lines.Add('powershell -ExecutionPolicy Bypass -File .\tools\update-workspace-overview.ps1')
 $lines.Add('```')
-$lines.Add('')
 
 if (-not $OutputPath) { $OutputPath = Join-Path $Root '_Dashboard\工作区总览-自动生成.md' }
 $OutputPath = [IO.Path]::GetFullPath($OutputPath)

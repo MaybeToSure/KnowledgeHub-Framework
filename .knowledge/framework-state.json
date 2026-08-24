@@ -1,6 +1,6 @@
 {
-  "installed_version": "0.6.0",
-  "generated_at": "2026-08-24T18:57:37.7149920+08:00",
+  "installed_version": "0.6.1",
+  "generated_at": "2026-08-24T19:23:20.5774630+08:00",
   "files": {
     ".agents/skills/knowledge-hub/agents/openai.yaml": "2c25192f76b4cb11bf3178500daa33210c7a7c819e71e5d82eddfb1861c29cb8",
     ".agents/skills/knowledge-hub/references/audit-and-sync.md": "bca95eb9c0fa70912b02bd0832120b1d8c208e7a927dab684eb603605a9a1b03",
@@ -37,10 +37,10 @@
     "tools/new-work-repository.ps1": "545c95532129d2acd4a6508083ce7d9c6943efa52a2a3286ba52e6d397c41f67",
     "tools/refresh-framework-state.ps1": "9de242213b9b170137c6f995e29e2c5879d785ef2b5e148cbe9e9914a82c2c7b",
     "tools/setup.ps1": "dab13651949e7b5760ead209428b6d45a613e0d1ebe061aa75c8e3abf72c9c68",
-    "tools/tests/test-update-workspace-overview.ps1": "c60387e3e4280367a29afa39294a9b45497e7aa8e3c44b07fde677f509069e9c",
+    "tools/tests/test-update-workspace-overview.ps1": "711b0661f5f2bb59b2508f223d3a1a195c9f9d4ca3c70baa1d4a0ec06e7372e3",
     "tools/update-framework.ps1": "91dc61394a939bb4b1c62768932d78bbcd797db8aab5d9aba3f536eda65a6b45",
-    "tools/update-workspace-overview.ps1": "0b2e3b4f22bd87b36d6b959001e5bb6fc87fe4b849372317852208518f06938d",
+    "tools/update-workspace-overview.ps1": "cde12f7807b4d9d81ef8977a8ae2d9e1f23b8118e08def50b294d7c02cc6925b",
     "tools/verify-repository.ps1": "8ab9ad45efcf471d8cb9490f05b96e38cbe7fe67abcb5d4801018685782f554b",
-    "VERSION": "97a5d6e540a6120d09c39ddb667e0e8e2bac7fcc2ffef813b82e08fd60365bce"
+    "VERSION": "87b241b275c591694846560e9879f50c9da3150f854efdabd782c539772f3033"
   }
 }
