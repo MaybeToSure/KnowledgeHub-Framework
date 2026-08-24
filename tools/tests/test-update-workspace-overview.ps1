@@ -21,7 +21,7 @@ try {
 
     $generator = Join-Path (Split-Path -Parent $PSScriptRoot) 'update-workspace-overview.ps1'
     & $generator -Root $hub | Out-Null
-    $overview = Join-Path $hub '_Dashboard\工作区总览.md'
+    $overview = Join-Path $hub '_Dashboard\工作区总览-自动生成.md'
     $content = [IO.File]::ReadAllText($overview, [Text.Encoding]::UTF8)
     if ($content -notmatch 'generated: true') { throw '总览缺少生成标记。' }
     if ($content -notmatch '模电原理') { throw '总览缺少受管理仓库。' }
@@ -31,9 +31,9 @@ try {
     if ($content -notmatch "最近提交：[^`r`n]*`t") { throw '最近提交的时间与标题分隔不正确。' }
     if ($content -notmatch 'test hub' -or $content -notmatch 'test project') { throw '最近提交标题缺失。' }
 
-    [IO.File]::WriteAllText((Join-Path $hub '_Dashboard\人工关注.md'), "# 人工内容`n", [Text.UTF8Encoding]::new($false))
+    [IO.File]::WriteAllText((Join-Path $hub '_Dashboard\工作区总览-手动维护.md'), "# 人工内容`n", [Text.UTF8Encoding]::new($false))
     & $generator -Root $hub | Out-Null
-    if ([IO.File]::ReadAllText((Join-Path $hub '_Dashboard\人工关注.md'), [Text.Encoding]::UTF8) -notmatch '人工内容') { throw '人工关注页被覆盖。' }
+    if ([IO.File]::ReadAllText((Join-Path $hub '_Dashboard\工作区总览-手动维护.md'), [Text.Encoding]::UTF8) -notmatch '人工内容') { throw '手动维护页被覆盖。' }
 
     [IO.File]::WriteAllText($overview, "# 人工总览`n", [Text.UTF8Encoding]::new($false))
     $blocked = $false

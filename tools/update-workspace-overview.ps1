@@ -100,9 +100,9 @@ $generatedAt = (Get-Date).ToString('yyyy-MM-ddTHH:mm:sszzz')
     "generated_at: $generatedAt",
     '---',
     '',
-    '# 工作区总览',
+    '# 工作区总览（自动生成）',
     '',
-    "> 本页由 Codex 根据仓库事实自动生成。人工内容请写入 [[KnowledgeHub/_Dashboard/人工关注]]。",
+    "> 本页由 Codex 根据仓库事实自动生成。人工内容请写入 [[KnowledgeHub/_Dashboard/工作区总览-手动维护]]。",
     '',
     '## KnowledgeHub',
     '',
@@ -151,7 +151,7 @@ $lines.Add('powershell -ExecutionPolicy Bypass -File .\tools\update-workspace-ov
 $lines.Add('```')
 $lines.Add('')
 
-if (-not $OutputPath) { $OutputPath = Join-Path $Root '_Dashboard\工作区总览.md' }
+if (-not $OutputPath) { $OutputPath = Join-Path $Root '_Dashboard\工作区总览-自动生成.md' }
 $OutputPath = [IO.Path]::GetFullPath($OutputPath)
 if (Test-Path -LiteralPath $OutputPath -PathType Leaf) {
     $existingHead = (Get-Content -LiteralPath $OutputPath -TotalCount 12) -join "`n"
@@ -162,9 +162,9 @@ if (Test-Path -LiteralPath $OutputPath -PathType Leaf) {
 }
 Write-Utf8File -Path $OutputPath -Content (($lines -join "`n") + "`n")
 
-$humanPath = Join-Path (Split-Path -Parent $OutputPath) '人工关注.md'
+$humanPath = Join-Path (Split-Path -Parent $OutputPath) '工作区总览-手动维护.md'
 if (-not (Test-Path -LiteralPath $humanPath -PathType Leaf)) {
-    Write-Utf8File -Path $humanPath -Content "# 人工关注`n`n本页由人工维护，Codex 更新工作区总览时不得覆盖。`n"
+    Write-Utf8File -Path $humanPath -Content "# 工作区总览（手动维护）`n`n本页由人工或经人工明确授权的 Codex 维护；自动生成器不得覆盖。`n"
 }
 
 [pscustomobject]@{

@@ -1,6 +1,6 @@
 {
-  "installed_version": "0.5.1",
-  "generated_at": "2026-08-24T17:08:05.3355482+08:00",
+  "installed_version": "0.6.0",
+  "generated_at": "2026-08-24T18:57:37.7149920+08:00",
   "files": {
     ".agents/skills/knowledge-hub/agents/openai.yaml": "2c25192f76b4cb11bf3178500daa33210c7a7c819e71e5d82eddfb1861c29cb8",
     ".agents/skills/knowledge-hub/references/audit-and-sync.md": "bca95eb9c0fa70912b02bd0832120b1d8c208e7a927dab684eb603605a9a1b03",
@@ -11,20 +11,20 @@
     ".gitattributes": "505249beb33b24c8afbf60d4a66a41f4cb997acf74d38dde44b3e92633f8518f",
     ".gitignore": "e1ccdd6676129e83c9a6b28df3aa4a9e01469afad59cc3250bddeffb8ad85e5a",
     "AGENTS.md": "b3f622d35e2acecd2fb6412cb0b7ac28de24159952ceec52a990f2386dc4143c",
-    "docs/升级与迁移.md": "64a12f11fc353a2f893d2c4d5f6976afd16095b8df34e93e58e8a2f9f9484740",
-    "docs/工作区总览.md": "8ab57d59e8a23653b61880d4e8e3913be685d7ea42d6d67607461f5aaea299a7",
+    "docs/升级与迁移.md": "52a9d7bd343ca60794769966352558e1a96cd9e0ba3a3e613469ac984008a7a6",
+    "docs/工作区总览.md": "91b19f516b729e2e1f4ebe7aa9be9e33777d1b563006cc28b7dd607ef19cadc5",
     "docs/快速开始.md": "5f880d3d77176852a321da61c8380aa4c302f1a14c0eb810adf8f9cd3ad15ae0",
     "docs/整体机制.md": "214f6f12cb5090024ecd258ae548e710bd3c77fbd6752554473f334f064eacc1",
-    "docs/日常使用.md": "fde0d575c43f6773783bc3efb820d93a6105226ad6273fbb77faead47ce9e62a",
+    "docs/日常使用.md": "63a35d2db71dc06dbc3142b17a95b633d08c4b07ea7d57999395e2fbee9906fe",
     "docs/框架原理与边界.md": "e7c7504762c7d9b2d0051baa32b63df07f005ef15134772121ca9b39d27d4000",
     "docs/独立仓库创建与驱动.md": "419a58f6c217a10023ba518119aca6d38ed54bb4ecc5376b721c002dd197cb6e",
     "examples/demo/README.md": "3ee821bb4ea9910caaccc6b3237685dc1e67e9f04588ce97da4d131e29205857",
     "framework.manifest.json": "3f876a32e36ee314adb1f6c58bdda820095ca3df31272d9711d05b3ec0058570",
     "LICENSE": "4a0b4843e12f87ce154da51f399c869f331f27e35f6b4a13f8025225b0c0d60c",
-    "README.md": "401dfa50a33ba76ede6b05db2adff50ba13b778f4777026581e80139ddd19e02",
+    "README.md": "d5c84edd9f4185bdf85b31f0d38d53abb88d2a108f3a2ecae371712b5b44dd7e",
     "Rules/Core/仓库同步.md": "24f5a3d796188616dce53dacf21af46f6abef9e44b9a5edc603df8b4bd2ea057",
     "Rules/Core/元数据规范.md": "0103a5342872293ca44f00ef9cb3d6a40e93fd62ca71112201b2a87f1efac29e",
-    "Rules/Core/工作区总览.md": "ccb868f4b80f91366919d5d60190974b75a6486c21e1c0a8812e61993ae2b1c3",
+    "Rules/Core/工作区总览.md": "e922ac0366f2ea821e845bd61c60ced0ccc8ec364a03141021ea099d97850ee0",
     "Rules/Core/知识库治理.md": "182d070ca22d4b35ead1140df6c811bc529736b1d04720788307e4377d44c03b",
     "Rules/Core/移动端随手记.md": "cfd0bf8ec04e06fd5fa75563d8d8f6f66fb16dd0bef8edb7b35acb1c41708ba3",
     "Rules/Core/随手记.md": "1d0dc93ef83e87221846fedf660e09c7a27437a18f6928c67d3e2158eabbdd9a",
@@ -37,10 +37,10 @@
     "tools/new-work-repository.ps1": "545c95532129d2acd4a6508083ce7d9c6943efa52a2a3286ba52e6d397c41f67",
     "tools/refresh-framework-state.ps1": "9de242213b9b170137c6f995e29e2c5879d785ef2b5e148cbe9e9914a82c2c7b",
     "tools/setup.ps1": "dab13651949e7b5760ead209428b6d45a613e0d1ebe061aa75c8e3abf72c9c68",
-    "tools/tests/test-update-workspace-overview.ps1": "879f80882d1b7b1e6bff67380953f2efd8a8b7c4b89df6b73f79485bf2accbe7",
+    "tools/tests/test-update-workspace-overview.ps1": "c60387e3e4280367a29afa39294a9b45497e7aa8e3c44b07fde677f509069e9c",
     "tools/update-framework.ps1": "91dc61394a939bb4b1c62768932d78bbcd797db8aab5d9aba3f536eda65a6b45",
-    "tools/update-workspace-overview.ps1": "98267bd7bff8dee2f51506a11863122d33475774df4156f1fbfe787db0666861",
+    "tools/update-workspace-overview.ps1": "0b2e3b4f22bd87b36d6b959001e5bb6fc87fe4b849372317852208518f06938d",
     "tools/verify-repository.ps1": "8ab9ad45efcf471d8cb9490f05b96e38cbe7fe67abcb5d4801018685782f554b",
-    "VERSION": "aba951626c8690ce493cbc8f018205bb468003f61fbf00fd3d3c71cebabc0177"
+    "VERSION": "97a5d6e540a6120d09c39ddb667e0e8e2bac7fcc2ffef813b82e08fd60365bce"
   }
 }
